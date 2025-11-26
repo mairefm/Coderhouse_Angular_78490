@@ -1,18 +1,19 @@
-console.log("Olá, typescript")
+console.log("Hola TypeScript");
 
-let nombre: string = "Coderhouse"
+let nombre: string = "Coderhouse";
 
 function saludar(nombre: string, apellido: string): Persona {
-    return {
-        nombre,
-        apellido
-    }
+  return {
+    nombre,
+    apellido,
+  };
 }
 
 interface Persona {
-    nombre: string,
-    apellido: string
+  nombre: string;
+  apellido: string;
 }
+
 let persona: Persona = saludar(nombre, "House");
 
 console.log(persona);

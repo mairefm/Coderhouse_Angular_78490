@@ -3,66 +3,65 @@ import { User } from '../users/interface/User';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private usersSubject = new BehaviorSubject<User[]>([]);
-  user$ = this.usersSubject.asObservable();
+  users$ = this.usersSubject.asObservable();
 
-  private userEdit = new BehaviorSubject<User | null>(null);
+  userEdit = new BehaviorSubject<User | null>(null);
   userEdit$ = this.userEdit.asObservable();
 
-  userList: User[] = [
-    { id: 1, nombre: 'norma', apellido: 'garcia', email: 'norma@exemplo.com' },
-    { id: 2, nombre: 'juan', apellido: 'perez', email: 'juan@exemplo.com' },
-    { id: 3, nombre: 'norka', apellido: 'torres', email: 'norka@exemplo.com' },
-    { id: 4, nombre: 'milena', apellido: 'malheiros', email: 'milena@exemplo.com' },
-    { id: 5, nombre: 'flavio', apellido: 'machado', email: 'flavio@exemplo.com' },
-    { id: 6, nombre: 'jorge', apellido: 'augusto', email: 'j orge@exemplo.com' },
-    { id: 7, nombre: 'eduardo', apellido: 'garcia', email: 'eduardo@exemplo.com' },
-    { id: 8, nombre: 'ricardo', apellido: 'pereira', email: 'ricardo@exemplo.com' },
-    { id: 9, nombre: 'roberto', apellido: 'silva', email: 'roberto@exemplo.com' },
-    { id: 10, nombre: 'cristiano', apellido: 'pereira', email: 'cristiano@exemplo.com' },
-    { id: 11, nombre: 'alfredo', apellido: 'silva', email: 'roberto@exemplo.com' },
-
+  usersList: User[] = [
+    { id: 1, nombre: 'norka', apellido: 'garcia', email: 'norka@gmail.com' },
+    { id: 2, nombre: 'juan', apellido: 'perez', email: 'juan@gmail.com' },
+    { id: 3, nombre: 'maria', apellido: 'lopez', email: 'maria@gmail.com' },
+    { id: 4, nombre: 'pedro', apellido: 'gonzalez', email: 'pedro@gmail.com' },
+    { id: 5, nombre: 'ana', apellido: 'diaz', email: 'ana@gmail.com' },
+    { id: 6, nombre: 'luis', apellido: 'fernandez', email: 'luis@gmail.com' },
+    { id: 7, nombre: 'sofia', apellido: 'martinez', email: 'sofia@gmail.com' },
+    { id: 8, nombre: 'miguel', apellido: 'garcia', email: 'miguel@gmail.com' },
+    { id: 9, nombre: 'elena', apellido: 'hernandez', email: 'elena@gmail.com' },
+    { id: 10, nombre: 'carlos', apellido: 'lopez', email: 'carlos@gmail.com' },
+    { id: 11, nombre: 'laura', apellido: 'perez', email: 'laura@gmail.com' },
   ];
 
   getUsers() {
-    this.usersSubject.next([...this.userList]);
+    this.usersSubject.next([...this.usersList]);
   }
+
   addUser(user: User) {
-    console.log("Servicio", user);
+    console.log('Servicio', user);
 
-    this.userList.push({
+    this.usersList.push({
       ...user,
-      id: this.userList[this.userList.length - 1].id + 1,
+      id: this.usersList[this.usersList.length - 1].id + 1,
     });
-    this.usersSubject.next([...this.userList]);
+
+    this.usersSubject.next([...this.usersList]);
   }
 
-  setUpdateUser(id: number): void {
-    const user: User | null = this.userList.find(u => u.id === id) || null;
-    this.userEdit.next(user);
+  setUpdateUser(id: number) {
+    this.userEdit.next(this.usersList.find((u) => u.id === id) || null);
   }
 
   updateUser(id: number, data: User) {
-    let index = this.userList.findIndex((u) => u.id === id);
+    let index = this.usersList.findIndex((u) => u.id === id);
 
     if (index === -1) {
       return undefined;
     }
 
-    this.userList[index] = {
-      ...this.userList[index],
-      ...data
+    this.usersList[index] = {
+      ...this.usersList[index],
+      ...data,
     };
-    this.usersSubject.next([...this.userList]);
+
+    this.usersSubject.next([...this.usersList]);
   }
 
   deleteUser(id: number) {
-    this.userList = this.userList.filter((u) => u.id !== id);
-    this.usersSubject.next([...this.userList]);
+    this.usersList = this.usersList.filter((u) => u.id !== id);
+    this.usersSubject.next([...this.usersList]);
   }
 }
-
-

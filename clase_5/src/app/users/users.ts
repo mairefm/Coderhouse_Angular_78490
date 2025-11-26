@@ -6,34 +6,32 @@ import { UserService } from '../services/user-service';
   selector: 'app-users',
   standalone: false,
   templateUrl: './users.html',
-  styleUrl: './users.css'
+  styleUrls: ['./users.css', '../app.css'],
 })
-
 export class Users {
-
-  nombre: string = 'Mairê';
-  apellido: string = 'Malheiros';
-  edad: number = 30;
-  userList: User[] = [];
+  nombre: string = 'Andreza';
+  apellido: string = 'Campbell';
+  edad: number = 20;
+  usersList: User[] = [];
   userToEdit: User | null = null;
 
-  h1Style = "font-size: 35px; color: aquamarine;"
+  h1Style = 'font-size: 55px; color: blue;';
 
-  constructor(private userService: UserService) {
-  };
+  constructor(private userService: UserService) {}
 
   onAddUser(user: User) {
     this.userService.addUser(user);
-  };
+  }
+
   onEditUser(user: User) {
     this.userToEdit = user;
-  };
+  }
 
   onEditRecieved(user: User) {
     let response = this.userService.updateUser(user.id, user);
 
     if (response) {
       this.userToEdit = null;
-    };
+    }
   }
 }

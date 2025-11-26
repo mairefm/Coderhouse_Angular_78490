@@ -6,16 +6,9 @@ import { App } from './app';
 import { UsersModule } from './users/users-module';
 
 @NgModule({
-  declarations: [
-    App
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    UsersModule],
-  providers: [
-    provideBrowserGlobalErrorListeners()
-  ],
-  bootstrap: [App]
+  declarations: [App],
+  imports: [BrowserModule, AppRoutingModule, UsersModule],
+  providers: [provideBrowserGlobalErrorListeners()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

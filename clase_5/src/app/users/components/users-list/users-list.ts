@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '../../interface/User';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,36 +8,32 @@ import { UserService } from '../../../services/user-service';
   selector: 'app-users-list',
   standalone: false,
   templateUrl: './users-list.html',
-  styleUrl: './users-list.css'
+  styleUrl: './users-list.css',
 })
-
-export class UserList {
+export class UsersList {
   @Input() users: User[] = [];
-
 
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'email', 'acciones'];
   dataSource = new MatTableDataSource<User>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private usersService: UserService) {
-    this.usersService.user$.subscribe(users => {
+  constructor(private userService: UserService) {
+    this.userService.users$.subscribe((users) => {
       this.dataSource.data = users;
     });
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.usersService.getUsers();
+    this.userService.getUsers();
   }
 
   onEditUser(id: number) {
-    this.usersService.setUpdateUser(id);
+    this.userService.setUpdateUser(id);
   }
-
 
   onDeleteUser(id: number) {
-    this.usersService.deleteUser(id);
+    this.userService.deleteUser(id);
   }
 }
-

@@ -5,19 +5,8 @@ import { SeparateLettersPipe } from './pipes/separateLetters/separate-letters-pi
 import { Resaltado } from './directives/resaltado/resaltado';
 
 @NgModule({
-  declarations: [
-    CapitalizePipe,
-    SeparateLettersPipe,
-    Resaltado
-
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    CapitalizePipe,
-    SeparateLettersPipe,
-    Resaltado
-  ]
+  declarations: [CapitalizePipe, SeparateLettersPipe, Resaltado],
+  imports: [CommonModule],
+  exports: [CapitalizePipe, SeparateLettersPipe, Resaltado],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -11,18 +11,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [
-    App
-  ],
+  declarations: [App],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UsersModule,
     MatSidenavModule,
-    MatButtonModule, MatToolbarModule, MatIconModule, MatListModule],
-  providers: [
-    provideBrowserGlobalErrorListeners()
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
   ],
-  bootstrap: [App]
+  providers: [provideBrowserGlobalErrorListeners()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

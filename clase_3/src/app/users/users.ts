@@ -5,25 +5,22 @@ import { User } from './interface/User';
   selector: 'app-users',
   standalone: false,
   templateUrl: './users.html',
-  styleUrl: './users.css'
+  styleUrls: ['./users.css', '../app.css'],
 })
-
 export class Users {
+  nombre: string = 'Andreza';
+  apellido: string = 'Campbell';
+  edad: number = 20;
 
-  nombre: string = 'Mairê';
-  apellido: string = 'Malheiros';
-  edad: number = 30;
+  h1Style = 'font-size: 55px; color: blue;';
 
-  h1Style = "font-size: 35px; color: aquamarine;"
-
-  users: User[] = [
-    { nombre: 'Norma', apellido: 'Garcia', email: 'norma@exemplo.com' },
-    { nombre: 'Juan', apellido: 'Perez', email: 'juan@exemplo.com' },
-    { nombre: 'Norka', apellido: 'Torres', email: 'norka@exemplo.com' },
+  usersList: User[] = [
+    { nombre: 'Norka', apellido: 'Garcia' },
+    { nombre: 'Juan', apellido: 'Perez' },
+    { nombre: 'Maria', apellido: 'Lopez' },
   ];
 
   onAddUser(user: User) {
-    this.users.push(user);
+    this.usersList.push(user);
   }
-
 }

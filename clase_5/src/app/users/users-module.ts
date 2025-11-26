@@ -2,24 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Users } from './users';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UsersForm } from './components/users-form/users-form';
+import { UsersList } from './components/users-list/users-list';
+import { UserForm } from './components/user-form/user-form';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import { MatAnchor, MatButton, MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../shared/shared-module';
+import { AppRoutingModule } from '../app-routing-module';
 import { UserService } from '../services/user-service';
-import { UserList } from './components/users-list/users-list';
 
 @NgModule({
-  declarations: [
-    Users,
-    UserList,
-    UsersForm,
-  ],
+  declarations: [Users, UsersList, UserForm],
   providers: [UserService],
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -28,10 +26,8 @@ import { UserList } from './components/users-list/users-list';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    SharedModule
+    AppRoutingModule,
   ],
-  exports: [
-    Users
-  ]
+  exports: [Users],
 })
-export class UsersModule { }
+export class UsersModule {}

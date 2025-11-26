@@ -1,9 +1,9 @@
-console.log("Olá, typescript");
+console.log("Hola TypeScript");
 var nombre = "Coderhouse";
 function saludar(nombre, apellido) {
     return {
         nombre: nombre,
-        apellido: apellido
+        apellido: apellido,
     };
 }
 var persona = saludar(nombre, "House");

@@ -1,14 +1,14 @@
 h1 {
-    color: purple;
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 2rem;
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
 }
 
 .text-red {
-    color: red;
+  color: red;
 }
 
 .bg-green {
-    background-color: green;
+  background-color: green;
 }
