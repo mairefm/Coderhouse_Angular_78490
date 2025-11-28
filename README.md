@@ -61,6 +61,13 @@ O repositório está organizado por pastas, cada uma representando o conteúdo t
 - Testes de componente (fixtures)
 - Introdução à Store (NgRx) e Redux DevTools
 
+### **Clase 9 — Proyecto Final & Buenas Prácticas**
+
+- Estruturação e planejamento do projeto final
+- Organização de módulos, componentes e serviços
+- Boas práticas de arquitetura Angular
+- Padronização de código (nomenclatura, pastas, módulos)
+
 ---
 
 ## 🧪 Tecnologias e Ferramentas Utilizadas
